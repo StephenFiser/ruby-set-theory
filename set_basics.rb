@@ -31,9 +31,13 @@ module SetBasics
 		end
 		compSet
 	end
-	
-	def toss set
+
+	def toss set 
+		tossSet = Set.new
+		@values.each do |elem|
+			tossSet.values << elem
+		end
 		universal = Set.new(1,2,3,4,5,6,7,8,9,10)
-		intersect(set.complement(universal))
+		tossSet.intersect(set.complement(universal))
 	end
 end
