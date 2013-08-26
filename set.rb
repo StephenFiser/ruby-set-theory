@@ -17,7 +17,7 @@ class Set
 				intersectionSet.values << elem
 			end
 		end
-		intersectionSet.values
+		intersectionSet
 	end
 
 	def unite set
@@ -30,28 +30,19 @@ class Set
 				unionSet.values << j
 			end
 		end
-		unionSet.values
+		unionSet
 	end
 
 	def toss set
-		diffSet = Set.new
-		@values.each do |x|
-			diffSet.values << x
-		end
-
-		set.values.each do |elem|
-			if diffSet.values.include? elem
-				diffSet.values.delete(elem)
-			end
-		end
-		diffSet.values
+		universal = Set.new(1,2,3,4,5,6,7,8,9,10)
+		intersect(set.complement(universal))
 	end
 
 	def complement set
-		compSet = set.values
+		compSet = set
 		@values.each do |elem|
-			if compSet.include? elem
-				compSet.delete(elem)
+			if compSet.values.include? elem
+				compSet.values.delete(elem)
 			end
 		end
 		compSet
