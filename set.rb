@@ -11,36 +11,40 @@ class Set
 	end
 
 	def intersect set
-		intersectionSet = []
+		intersectionSet = Set.new
 		set.values.each do |elem|
 			if @values.include? elem
-				intersectionSet << elem
+				intersectionSet.values << elem
 			end
 		end
-		intersectionSet
+		intersectionSet.values
 	end
 
 	def unite set
-		unionSet = []
+		unionSet = Set.new
 		@values.each do |i|
-			unionSet << i
+			unionSet.values << i
 		end
 		set.values.each do |j|
-			unless unionSet.include? j
-				unionSet << j
+			unless unionSet.values.include? j
+				unionSet.values << j
 			end
 		end
-		unionSet
+		unionSet.values
 	end
 
 	def toss set
-		diffSet = @values
+		diffSet = Set.new
+		@values.each do |x|
+			diffSet.values << x
+		end
+
 		set.values.each do |elem|
-			if diffSet.include? elem
-				diffSet.delete(elem)
+			if diffSet.values.include? elem
+				diffSet.values.delete(elem)
 			end
 		end
-		diffSet
+		diffSet.values
 	end
 
 	def complement set
