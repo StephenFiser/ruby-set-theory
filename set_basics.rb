@@ -11,19 +11,24 @@ module SetBasics
 
 	def unite set
 		unionSet = Set.new
-		@values.each do |i|
-			unionSet.values << i
+		@values.each do |elem| 
+			unionSet.values << elem
 		end
-		set.values.each do |j|
-			unless unionSet.values.include? j
-				unionSet.values << j
+		set.values.each do |i|
+			unless unionSet.values.include? i
+				unionSet.values << i
 			end
 		end
 		unionSet
 	end
 
 	def complement set
-		compSet = set
+		compSet = Set.new
+		print set
+		print compSet
+		set.values.each do |elem|
+			compSet.values << elem
+		end
 		@values.each do |elem|
 			if compSet.values.include? elem
 				compSet.values.delete(elem)
@@ -35,12 +40,16 @@ module SetBasics
 	def toss(set, universalSet) 
 
 		# A set difference is mathematically defined as A intersect ( B complement )
-
+		universal = Set.new
 		tossSet = Set.new
+
 		@values.each do |elem|
 			tossSet.values << elem
 		end
-		universal = universalSet
+		
+		universalSet.values.each do |elem|
+			universal.values << elem
+		end
 
 		tossSet.intersect(set.complement(universal))
 	end
