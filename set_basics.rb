@@ -24,8 +24,6 @@ module SetBasics
 
 	def complement set
 		compSet = Set.new
-		print set
-		print compSet
 		set.values.each do |elem|
 			compSet.values << elem
 		end
@@ -46,7 +44,7 @@ module SetBasics
 		@values.each do |elem|
 			tossSet.values << elem
 		end
-		
+
 		universalSet.values.each do |elem|
 			universal.values << elem
 		end
