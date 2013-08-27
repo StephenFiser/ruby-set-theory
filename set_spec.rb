@@ -33,7 +33,8 @@ describe Set, "#toss" do
 	it "should return the result of the set difference" do
 		set1 = Set.new(1,2,3)
 		set2 = Set.new(2,3,4)
-		set1.toss(set2).values.should eq([1])
+		universal = Set.new(1,2,3,4)
+		set1.toss(set2, universal).values.should eq([1])
 	end
 end
 
