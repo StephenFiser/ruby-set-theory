@@ -37,7 +37,12 @@ module SetBasics
 		@values.each do |elem|
 			tossSet.values << elem
 		end
-		universal = Set.new(1,2,3,4,5,6,7,8,9,10)
+		universal = Set.new
+
+		(-1000000..1000000).to_a.each do |i| # approximating an infinite set of integers
+			universal.values << i
+		end 
+
 		tossSet.intersect(set.complement(universal))
 	end
 end
