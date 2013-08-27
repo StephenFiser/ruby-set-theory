@@ -32,16 +32,15 @@ module SetBasics
 		compSet
 	end
 
-	def toss set 
+	def toss(set, universalSet) 
+
+		# A set difference is mathematically defined as A intersect ( B complement )
+
 		tossSet = Set.new
 		@values.each do |elem|
 			tossSet.values << elem
 		end
-		universal = Set.new
-
-		(-1000000..1000000).to_a.each do |i| # approximating an infinite set of integers
-			universal.values << i
-		end 
+		universal = universalSet
 
 		tossSet.intersect(set.complement(universal))
 	end
