@@ -18,6 +18,7 @@ module SetBasics
 			unless unionSet.values.include? i
 				unionSet.values << i
 			end
+			unionSet.values.sort!
 		end
 		unionSet
 	end

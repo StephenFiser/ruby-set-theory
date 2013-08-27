@@ -19,6 +19,13 @@ describe Set, "#intersect" do
 		set2 = Set.new(3,4,5)
 		set1.intersect(set2).values.should eq([3])
 	end
+
+	it "should allow multiple calculations" do
+		set1 = Set.new(1,2,3)
+		set2 = Set.new(3,4,5)
+		set1.intersect(set2)
+		set2.intersect(set1).values.should eq ([3])
+	end
 end
 
 describe Set, "#unite" do
@@ -26,6 +33,19 @@ describe Set, "#unite" do
 		set1 = Set.new(1,2,3)
 		set2 = Set.new(3,4,5)
 		set1.unite(set2).values.should eq ([1,2,3,4,5])
+	end
+
+	it "should allow multiple calculations" do
+		set1 = Set.new(1,2,3)
+		set2 = Set.new(3,4,5)
+		set1.unite(set2)
+		set2.unite(set1).values.should eq ([1,2,3,4,5])
+	end
+
+	it "should sort the results of the union" do
+		set1 = Set.new(1,2,3)
+		set2 = Set.new(3,4,5)
+		set2.unite(set1).values.should eq ([1,2,3,4,5])
 	end
 end
 
@@ -37,7 +57,7 @@ describe Set, "#toss" do
 		set1.toss(set2, universal).values.should eq([1])
 	end
 
-	it "should return the correct result when called on any object" do
+	it "should allow for multiple calculations" do
 		set1 = Set.new(1,2,3)
 		set2 = Set.new(2,3,4)
 		universal = Set.new(1,2,3,4)
