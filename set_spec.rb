@@ -74,6 +74,15 @@ describe Set, "#complement" do
 		set = Set.new(1,2,5)
 		set.complement(universal).values.should eq([3,4,6,7,8,9,10])
 	end
+
+	it "should allow for multiple calculations" do 
+		set1 = Set.new(1,2,3)
+		set2 = Set.new(2,3,4)
+		universal = Set.new(1,2,3,4)
+		set1.complement(universal)
+		set2.complement(universal).values.should eq([1])
+
+	end
 end
 
 
