@@ -5,6 +5,7 @@ module SetBasics
 			if @values.include? elem
 				intersectionSet.values << elem
 			end
+			intersectionSet.values.sort!
 		end
 		intersectionSet
 	end
@@ -32,6 +33,7 @@ module SetBasics
 			if compSet.values.include? elem
 				compSet.values.delete(elem)
 			end
+			compSet.values.sort!
 		end
 		compSet
 	end

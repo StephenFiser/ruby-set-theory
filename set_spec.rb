@@ -26,6 +26,12 @@ describe Set, "#intersect" do
 		set1.intersect(set2)
 		set2.intersect(set1).values.should eq ([3])
 	end
+
+	it "should sort the results of the intersection" do
+		set1 = Set.new(1,2,3,4,5)
+		set2 = Set.new(5,4,1,2)
+		set2.intersect(set1).values.should eq ([1,2,4,5])
+	end
 end
 
 describe Set, "#unite" do
